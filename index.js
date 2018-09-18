@@ -4,7 +4,7 @@ var PassThrough = require("stream").PassThrough;
 var zlib = require("zlib");
 var util = require("util");
 var EventEmitter = require("events").EventEmitter;
-var crc32 = $$.requireModule("buffer-crc32");
+var crc32 = require("buffer-crc32");
 
 exports.ZipFile = ZipFile;
 exports.dateToDosDateTime = dateToDosDateTime;
