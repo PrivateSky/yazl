@@ -74,6 +74,7 @@ ZipFile.prototype.addBuffer = function (buffer, metadataPath, options) {
 	} else {
 		zlib.deflateRaw(buffer, function (err, compressedBuffer) {
 			setCompressedBuffer(compressedBuffer);
+			
 		});
 	}
 
@@ -94,18 +95,6 @@ ZipFile.prototype.addBuffer = function (buffer, metadataPath, options) {
 	}
 };
 
-
-ZipFile.prototype.addBuffers = function (buffers, metadataPath, options) {
-	if(Buffer.isBuffer(buffers)){
-		this.addBuffer(buffers, metadataPath, options);
-		return;
-	}
-	var buff = Buffer.alloc(0);
-	buffers.forEach( (buffer) => {
-		buff = Buffer.concat([buff, buffer]);
-	});
-	this.addBuffer(buff, metadataPath, options);
-};
 
 ZipFile.prototype.addEmptyDirectory = function (metadataPath, options) {
 	var self = this;
